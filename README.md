@@ -38,6 +38,7 @@
   --docker-image 'docker:dind'
 
 7. Настроить(изменить) конфигурацию gitlab-runner:
+
 docker exec -it <CONTAINER ID> /bin/bash 
 
 apt-get update && apt-get install -y nano
