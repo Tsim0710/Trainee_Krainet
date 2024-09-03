@@ -10,8 +10,8 @@
 - [Предварительные требования](#предварительные-требования)
 - [Запуск GitLab CE и Gitlab runner](#запуск-gitlab-ce-и-Gitlab-runner)
 - [Настройка CI/CD](#настройка-cicd)
-- [Разместите в проекте файлы из папки]
-- [Примечания](#примечания)
+- [Разместите в проекте файлы из архива](#Разместите-в-проекте-файлы-из-архива)
+- [Сохранить image из container и сохранить image в tar](#Сохранить-image-из-container-и-сохранить-image-в-tar)
 
 ## Предварительные требования
 
@@ -38,11 +38,28 @@
   --docker-image 'docker:dind'
 
 7. Настроить(изменить) конфигурацию ruuner /etc/gitlab-runner/config.toml -> docker exec -it <CONTAINER ID> /bin/bash -> apt-get update && apt-get install -y nano
--> nano /etc/gitlab-runner/config.toml -> privileged = true | volumes = ["/var/run/docker.sock:/var/run/docker.sock", "/cache"]
-8. Проверить runner в настройках проекта Settings/CICD/Runners
+-> nano /etc/gitlab-runner/config.toml -> 
+ Измените строки:
+ privileged = true
+ volumes = ["/var/run/docker.sock:/var/run/docker.sock", "/cache"]
 
 
 ## Настройка CI/CD
 
 1. Перейдите Build/Pipline editor
 2. Замените содержимым gitlab-ci.yml
+
+## Разместите в проекте файлы из архива
+https://drive.google.com/file/d/1nFYofaF55wh4CeG1_hS4uRSjR-COE-SI/view?usp=sharing
+
+Добавьте Dockerfile
+
+## Сохранить image из container и сохранить image в tar
+
+docker save -o <имя_файла>.tar localhost:5005/root/project_name
+
+Убедись, что файл создан:
+ls -lh <имя_файла>.tar
+
+Загрузите архив:
+docker load -i <имя_файла>.tar
