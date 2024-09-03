@@ -30,15 +30,16 @@
 5. Create project -> create blank project | public
 6. Настроить runner одной командой:
 
- ```bash
- docker exec -it gitlab-runner gitlab-runner register \
-  --non-interactive \
-  --url 'http://localhost:8088' \
-  --registration-token 'r3g1str4t10n' \
-  --executor 'docker' \
-  --docker-network-mode 'host' \
-  --docker-image 'docker:dind'
-    bash```
+```bash
+docker exec -it gitlab-runner gitlab-runner register \
+ --non-interactive \
+ --url 'http://localhost:8088' \
+ --registration-token 'r3g1str4t10n' \
+ --executor 'docker' \
+ --docker-network-mode 'host' \
+ --docker-image 'docker:dind'
+
+    
 7. Настроить(изменить) конфигурацию gitlab-runner:
 
 ```bash
