@@ -67,13 +67,16 @@ nano /etc/gitlab-runner/config.toml
 
 ## Настройка CI/CD
 
-1. Перейдите Build/Pipline editor
-2. Замените содержимым [gitlab-ci.yml](https://github.com/Tsim0710/Trainee_Krainet/blob/92b003894d17f71001e367c757c187abe8cacc73/.gitlab-ci.yml)
+1. Перейдите Project/Build/Pipeline editor
+2. Скопируйте [gitlab-ci.yml](https://github.com/Tsim0710/Trainee_Krainet/blob/92b003894d17f71001e367c757c187abe8cacc73/.gitlab-ci.yml)
+3. Commit changes
 
 ## Разместите в проекте файлы из архива
 https://drive.google.com/file/d/1nFYofaF55wh4CeG1_hS4uRSjR-COE-SI/view?usp=sharing
 
-Добавить [Dockerfile](https://github.com/Tsim0710/Trainee_Krainet/blob/6b36acbf81c90521969f41782d7f45879778aae2/Dockerfile) и дождаться выполнения пайплайна. 
+Добавьте в проект [Dockerfile](https://github.com/Tsim0710/Trainee_Krainet/blob/6b36acbf81c90521969f41782d7f45879778aae2/Dockerfile) 
+
+
 
 ## Сохранить image из Container registry в tar и загрузить архив
 
