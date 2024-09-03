@@ -55,6 +55,7 @@ nano /etc/gitlab-runner/config.toml
 `
 
 Измените строки:
+
 `
  privileged = true
 `
