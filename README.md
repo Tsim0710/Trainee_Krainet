@@ -8,7 +8,7 @@
 ## Инструкция
 
 - [Предварительные требования](#предварительные-требования)
-- [Запуск GitLab CE и Gitlab runner](#запуск-gitlab-ce-и-Gitlab-runner)
+- [Запуск gitlab-ce и gitlab-runner](#запуск-gitlab-ce-и-Gitlab-runner)
 - [Настройка CI/CD](#настройка-cicd)
 - [Разместите в проекте файлы из архива](#Разместите-в-проекте-файлы-из-архива)
 - [Сохранить image из container и сохранить image в tar](#Сохранить-image-из-container-и-сохранить-image-в-tar)
@@ -21,14 +21,14 @@
 
 Убедитесь, что Docker и Docker Compose установлены и работают на вашей машине.
 
-## Запуск GitLab CE и Gitlab runner
+## Запуск gitLab-ce и gitlab-runner
 
 1. Скопируйте [docker-compose.yml](https://github.com/Tsim0710/Trainee_Krainet/blob/f29dd0f694e70654f0411eeb94a67ecca758fc7f/docker-compose.yml)
-2. docker compose up -d
-3. Перейдите по external_url 'http://localhost:8088'
-4. Логин - root, пароль - gitlab_rails['initial_root_password'] = 'tsim0710tsim'
-5. Create project -> create blank project | public
-6. Настроить runner:
+2. `docker-compose up -d`
+3. Перейдите по external_url `'http://localhost:8088'`
+4. Логин - `root`, пароль - gitlab_rails['initial_root_password'] = `'tsim0710tsim'`
+5. Создайте проект
+6. Настройте runner:
 
 ```
 docker exec -it gitlab-runner gitlab-runner register \
@@ -40,29 +40,19 @@ docker exec -it gitlab-runner gitlab-runner register \
  --docker-image 'docker:dind'
 ```
     
-7. Настроить(изменить) конфигурацию gitlab-runner:
+7. Настройте/измените конфигурацию gitlab-runner:
 
-`
-docker exec -it container_id /bin/bash 
-`
+`docker exec -it container_id /bin/bash` 
 
-`
-apt-get update && apt-get install -y nano
-`
+`apt-get update && apt-get install -y nano`
 
-`
-nano /etc/gitlab-runner/config.toml
-`
+`nano /etc/gitlab-runner/config.toml`
 
  Измените строки:
 
-`
- privileged = true
-`
+ `privileged = true`
 
-`
- volumes = ["/var/run/docker.sock:/var/run/docker.sock", "/cache"]
-`
+ `volumes = ["/var/run/docker.sock:/var/run/docker.sock", "/cache"]`
 
 
 ## Настройка CI/CD
@@ -78,20 +68,14 @@ https://drive.google.com/file/d/1nFYofaF55wh4CeG1_hS4uRSjR-COE-SI/view?usp=shari
 
 
 
-## Сохранить image из Container registry в tar и загрузить архив
+## Сохранить image из Container registry в tar и загрузите архив
 
-`
-docker save -o <имя_файла>.tar localhost:5005/root/project_name
-`
+`docker save -o <имя_файла>.tar localhost:5005/root/project_name`
 
 Убедись, что файл создан:
 
-`
-ls -lh <имя_файла>.tar
-`
+`ls -lh <имя_файла>.tar`
 
 Загрузите архив:
 
-`
-docker load -i <имя_файла>.tar
-`
+`docker load -i <имя_файла>.tar`
