@@ -73,7 +73,7 @@ nano /etc/gitlab-runner/config.toml
 ## Разместите в проекте файлы из архива
 https://drive.google.com/file/d/1nFYofaF55wh4CeG1_hS4uRSjR-COE-SI/view?usp=sharing
 
-Добавить Dockerfile(Из репозитория) и дождаться выполнения пайплайна. 
+Добавить [Dockerfile](https://github.com/Tsim0710/Trainee_Krainet/blob/6b36acbf81c90521969f41782d7f45879778aae2/Dockerfile) и дождаться выполнения пайплайна. 
 
 ## Сохранить image из Container registry в tar и загрузить архив
 
