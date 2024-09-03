@@ -42,17 +42,17 @@ docker exec -it gitlab-runner gitlab-runner register \
     
 7. Измените конфигурацию `gitlab-runner`:
 
-`docker exec -it container_id /bin/bash` 
+  `docker exec -it container_id /bin/bash` 
 
-`apt-get update && apt-get install -y nano`
+  `apt-get update && apt-get install -y nano`
 
-`nano /etc/gitlab-runner/config.toml`
+  `nano /etc/gitlab-runner/config.toml`
 
- Отредактируйте строки:
+  Отредактируйте строки:
 
- `privileged = true`
+  `privileged = true`
 
- `volumes = ["/var/run/docker.sock:/var/run/docker.sock", "/cache"]`
+  `volumes = ["/var/run/docker.sock:/var/run/docker.sock", "/cache"]`
 
 
 ## Настройка CI/CD
@@ -72,11 +72,11 @@ docker exec -it gitlab-runner gitlab-runner register \
 
 1. Сохраните образ в файл:
    
- `docker save -o <имя_файла>.tar localhost:5005/root/project_name`
+  `docker save -o <имя_файла>.tar localhost:5005/root/project_name`
 
 2. Убедись, что файл создан:
 
- `ls -lh <имя_файла>.tar`
+  `ls -lh <имя_файла>.tar`
 
 3. Загрузите архив:
 
