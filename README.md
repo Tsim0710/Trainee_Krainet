@@ -23,7 +23,7 @@
 
 ## Запуск GitLab CE и Gitlab runner
 
-1. Скопируйте docker-compose.yml (Из репозитория)
+1. Скопируйте [docker-compose.yml](https://github.com/Tsim0710/Trainee_Krainet/blob/f29dd0f694e70654f0411eeb94a67ecca758fc7f/docker-compose.yml)
 2. docker compose up -d
 3. Перейдите по external_url 'http://localhost:8088'
 4. Логин - root, пароль - gitlab_rails['initial_root_password'] = 'tsim0710tsim'
@@ -68,7 +68,7 @@ nano /etc/gitlab-runner/config.toml
 ## Настройка CI/CD
 
 1. Перейдите Build/Pipline editor
-2. Замените содержимым gitlab-ci.yml (Из репозитория)
+2. Замените содержимым [gitlab-ci.yml](https://github.com/Tsim0710/Trainee_Krainet/blob/92b003894d17f71001e367c757c187abe8cacc73/.gitlab-ci.yml)
 
 ## Разместите в проекте файлы из архива
 https://drive.google.com/file/d/1nFYofaF55wh4CeG1_hS4uRSjR-COE-SI/view?usp=sharing
