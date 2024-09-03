@@ -1,0 +1,25 @@
+stages:
+  - build
+  - push
+
+variables:
+  REGISTRY_URL: localhost:5005
+  IMAGE_NAME: $REGISTRY_URL/root/project_name
+
+build:
+  stage: build
+  image: docker:latest
+  services:
+    - docker:dind
+  script:
+    - docker build -t $IMAGE_NAME .
+
+push:
+  stage: push
+  image: docker:latest
+  services:
+    - docker:dind
+  script:
+    - docker login -u root -p tsim0710tsim $REGISTRY_URL
+    - docker push $IMAGE_NAME
+
