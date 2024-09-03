@@ -38,7 +38,7 @@
   --executor 'docker' \
   --docker-network-mode 'host' \
   --docker-image 'docker:dind'
-```bash
+    bash```
 7. Настроить(изменить) конфигурацию gitlab-runner:
 
 ```bash
