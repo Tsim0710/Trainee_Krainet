@@ -40,7 +40,7 @@ docker exec -it gitlab-runner gitlab-runner register \
  --docker-image 'docker:dind'
 ```
     
-7. Настройте/измените конфигурацию gitlab-runner:
+7. Измените конфигурацию gitlab-runner:
 
 `docker exec -it container_id /bin/bash` 
 
@@ -48,7 +48,7 @@ docker exec -it gitlab-runner gitlab-runner register \
 
 `nano /etc/gitlab-runner/config.toml`
 
- Измените строки:
+ Отредактируйте строки:
 
  `privileged = true`
 
