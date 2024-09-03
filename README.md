@@ -17,6 +17,7 @@
 
 - Docker
 - Docker Compose
+- Docker-Desktop
 - Git
 
 Убедитесь, что Docker и Docker Compose установлены и работают на вашей машине.
