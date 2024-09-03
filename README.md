@@ -17,9 +17,9 @@
 
 - Docker
 - Docker Compose
-- Docker-Desktop
+- Docker Desktop
 
-Убедитесь, что Docker и Docker Compose установлены и работают на вашей машине.
+Убедитесь, что Docker,Docker Compose и Docker Desktop установлены и работают на вашей машине.
 
 ## Запуск gitLab-ce и gitlab-runner
 
