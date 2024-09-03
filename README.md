@@ -18,7 +18,6 @@
 - Docker
 - Docker Compose
 - Docker-Desktop
-- Git
 
 Убедитесь, что Docker и Docker Compose установлены и работают на вашей машине.
 
@@ -29,7 +28,8 @@
 3. Перейдите по external_url 'http://localhost:8088'
 4. Логин - root, пароль - gitlab_rails['initial_root_password'] = 'tsim0710tsim'
 5. Create project -> create blank project | public
-6. Настроить runner -> docker exec -it gitlab-runner gitlab-runner register \
+6. Настроить runner:
+ docker exec -it gitlab-runner gitlab-runner register \
   --non-interactive \
   --url 'http://localhost:8088' \
   --registration-token 'r3g1str4t10n' \
@@ -37,9 +37,14 @@
   --docker-network-mode 'host' \
   --docker-image 'docker:dind'
 
-7. Настроить(изменить) конфигурацию ruuner /etc/gitlab-runner/config.toml -> docker exec -it <CONTAINER ID> /bin/bash -> apt-get update && apt-get install -y nano
--> nano /etc/gitlab-runner/config.toml -> 
- Измените строки:
+7. Настроить(изменить) конфигурацию gitlab-runner:
+docker exec -it <CONTAINER ID> /bin/bash 
+
+apt-get update && apt-get install -y nano
+
+nano /etc/gitlab-runner/config.toml
+
+Измените строки:
  privileged = true
  volumes = ["/var/run/docker.sock:/var/run/docker.sock", "/cache"]
 
@@ -52,9 +57,9 @@
 ## Разместите в проекте файлы из архива
 https://drive.google.com/file/d/1nFYofaF55wh4CeG1_hS4uRSjR-COE-SI/view?usp=sharing
 
-Добавьте Dockerfile
+Добавить Dockerfile и дождаться выполнения пайплайна. 
 
-## Сохранить image из container и сохранить image в tar
+## Сохранить image из Container registry в tar и загрузить архив
 
 docker save -o <имя_файла>.tar localhost:5005/root/project_name
 
