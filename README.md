@@ -41,7 +41,7 @@
 
 7. Настроить(изменить) конфигурацию gitlab-runner:
 
-docker exec -it <CONTAINERID> /bin/bash 
+docker exec -it container_id /bin/bash 
 
 apt-get update && apt-get install -y nano
 
