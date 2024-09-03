@@ -64,11 +64,11 @@ docker exec -it gitlab-runner gitlab-runner register \
 ## Разместите в проекте файлы из архива
 https://drive.google.com/file/d/1nFYofaF55wh4CeG1_hS4uRSjR-COE-SI/view?usp=sharing
 
-Добавьте в проект [Dockerfile](https://github.com/Tsim0710/Trainee_Krainet/blob/6b36acbf81c90521969f41782d7f45879778aae2/Dockerfile) 
+Добавьте в проект [Dockerfile](https://github.com/Tsim0710/Trainee_Krainet/blob/6b36acbf81c90521969f41782d7f45879778aae2/Dockerfile)
 
 
 
-## Сохранить image из Container registry в tar и загрузите архив
+## Сохранить Image из Container registry в tar и загрузите архив
 
 `docker save -o <имя_файла>.tar localhost:5005/root/project_name`
 
