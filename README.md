@@ -10,8 +10,8 @@
 - [Предварительные требования](#предварительные-требования)
 - [Запуск gitlab-ce и gitlab-runner](#запуск-gitlab-ce-и-Gitlab-runner)
 - [Настройка CI/CD](#настройка-cicd)
-- [Разместите в проекте файлы из архива](#Разместите-в-проекте-файлы-из-архива)
-- [Сохранить Image из Container registry в tar и загрузите архив](#Сохранить-Image-из-Container-registry-в-tar-и-загрузите-архив)
+- [Размещение файлов в проекте](#Размещение-файлов-в-проекте)
+- [Сохранение и загрузка образа из Container Registry](#Сохранение-и-загрузка-образа-из-Container-Registry)
 
 ## Предварительные требования
 
@@ -25,9 +25,9 @@
 
 1. Скопируйте [docker-compose.yml](https://github.com/Tsim0710/Trainee_Krainet/blob/f29dd0f694e70654f0411eeb94a67ecca758fc7f/docker-compose.yml)
 2. `docker-compose up -d`
-3. Перейдите по external_url `'http://localhost:8088'`
-4. Логин - `root`, пароль - gitlab_rails['initial_root_password'] = `'tsim0710tsim'`
-5. Создайте проект
+3. Перейдите по external_url `'http://localhost:8088'`.
+4. Логин - `root`, пароль - gitlab_rails['initial_root_password'] = `'tsim0710tsim'`.
+5. Создайте проект в Gitlab.
 6. Настройте runner:
 
 ```
@@ -40,7 +40,7 @@ docker exec -it gitlab-runner gitlab-runner register \
  --docker-image 'docker:dind'
 ```
     
-7. Измените конфигурацию gitlab-runner:
+7. Измените конфигурацию `gitlab-runner`:
 
 `docker exec -it container_id /bin/bash` 
 
@@ -57,25 +57,27 @@ docker exec -it gitlab-runner gitlab-runner register \
 
 ## Настройка CI/CD
 
-1. Перейдите Project/Build/Pipeline editor
-2. Скопируйте [gitlab-ci.yml](https://github.com/Tsim0710/Trainee_Krainet/blob/92b003894d17f71001e367c757c187abe8cacc73/.gitlab-ci.yml)
-3. Commit changes
+1. Перейдите `Project` > `Build` > `Pipeline editor`.
+2. Скопируйте [gitlab-ci.yml](https://github.com/Tsim0710/Trainee_Krainet/blob/92b003894d17f71001e367c757c187abe8cacc73/.gitlab-ci.yml).
+3. Закоммитьте изменения.
 
-## Разместите в проекте файлы из архива
-https://drive.google.com/file/d/1nFYofaF55wh4CeG1_hS4uRSjR-COE-SI/view?usp=sharing
+## Размещение файлов в проекте
+1. Скачайте файлы из архива: https://drive.google.com/file/d/1nFYofaF55wh4CeG1_hS4uRSjR-COE-SI/view?usp=sharing.
 
-Добавьте в проект [Dockerfile](https://github.com/Tsim0710/Trainee_Krainet/blob/6b36acbf81c90521969f41782d7f45879778aae2/Dockerfile)
+2. Добавьте в проект файл [Dockerfile](https://github.com/Tsim0710/Trainee_Krainet/blob/6b36acbf81c90521969f41782d7f45879778aae2/Dockerfile).
 
 
 
-## Сохранить Image из Container registry в tar и загрузите архив
+## Сохранение и загрузка образа из Container Registry
 
-`docker save -o <имя_файла>.tar localhost:5005/root/project_name`
+1. Сохраните образ в файл:
+   
+ `docker save -o <имя_файла>.tar localhost:5005/root/project_name`
 
-Убедись, что файл создан:
+2. Убедись, что файл создан:
 
-`ls -lh <имя_файла>.tar`
+ `ls -lh <имя_файла>.tar`
 
-Загрузите архив:
+3. Загрузите архив:
 
-`docker load -i <имя_файла>.tar`
+ `docker load -i <имя_файла>.tar`
