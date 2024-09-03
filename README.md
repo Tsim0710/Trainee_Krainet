@@ -29,6 +29,8 @@
 4. Логин - root, пароль - gitlab_rails['initial_root_password'] = 'tsim0710tsim'
 5. Create project -> create blank project | public
 6. Настроить runner:
+
+
  docker exec -it gitlab-runner gitlab-runner register \
   --non-interactive \
   --url 'http://localhost:8088' \
@@ -39,7 +41,7 @@
 
 7. Настроить(изменить) конфигурацию gitlab-runner:
 
-docker exec -it <CONTAINER ID> /bin/bash 
+docker exec -it <CONTAINERID> /bin/bash 
 
 apt-get update && apt-get install -y nano
 
