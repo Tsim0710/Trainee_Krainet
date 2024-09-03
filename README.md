@@ -38,14 +38,20 @@
   --executor 'docker' \
   --docker-network-mode 'host' \
   --docker-image 'docker:dind'
-
+```bash
 7. Настроить(изменить) конфигурацию gitlab-runner:
 
+```bash
 docker exec -it container_id /bin/bash 
+```bash
 
+```bash
 apt-get update && apt-get install -y nano
+```bash
 
+```bash
 nano /etc/gitlab-runner/config.toml
+```bash
 
 Измените строки:
  privileged = true
@@ -64,10 +70,17 @@ https://drive.google.com/file/d/1nFYofaF55wh4CeG1_hS4uRSjR-COE-SI/view?usp=shari
 
 ## Сохранить image из Container registry в tar и загрузить архив
 
+```bash
 docker save -o <имя_файла>.tar localhost:5005/root/project_name
+```bash
 
 Убедись, что файл создан:
+
+```bash
 ls -lh <имя_файла>.tar
+```bash
 
 Загрузите архив:
+```bash
 docker load -i <имя_файла>.tar
+```bash
