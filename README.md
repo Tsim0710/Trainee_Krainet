@@ -54,7 +54,7 @@ apt-get update && apt-get install -y nano
 nano /etc/gitlab-runner/config.toml
 `
 
-Измените строки:
+ Измените строки:
 
 `
  privileged = true
