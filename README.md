@@ -55,9 +55,13 @@ nano /etc/gitlab-runner/config.toml
 `
 
 Измените строки:
+`
  privileged = true
+`
 
+`
  volumes = ["/var/run/docker.sock:/var/run/docker.sock", "/cache"]
+`
 
 
 ## Настройка CI/CD
