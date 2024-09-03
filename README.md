@@ -23,8 +23,8 @@
 
 ## Запуск gitLab-ce и gitlab-runner
 
-1. Скопируйте [docker-compose.yml](https://github.com/Tsim0710/Trainee_Krainet/blob/f29dd0f694e70654f0411eeb94a67ecca758fc7f/docker-compose.yml)
-2. `docker-compose up -d`
+1. Скопируйте [docker-compose.yml](https://github.com/Tsim0710/Trainee_Krainet/blob/f29dd0f694e70654f0411eeb94a67ecca758fc7f/docker-compose.yml).
+2. Выполните команду: `docker-compose up -d`.
 3. Перейдите по external_url `'http://localhost:8088'`.
 4. Логин - `root`, пароль - gitlab_rails['initial_root_password'] = `'tsim0710tsim'`.
 5. Создайте проект в Gitlab.
