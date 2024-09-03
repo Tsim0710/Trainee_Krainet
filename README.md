@@ -5,7 +5,7 @@
 
 Этот репозиторий содержит Docker Compose конфигурацию для развертывания GitLab Community Edition (CE), настройки CI/CD пайплайнов и Dockerfile 
 
-## Содержание
+## Инструкция
 
 - [Предварительные требования](#предварительные-требования)
 - [Запуск GitLab CE и Gitlab runner](#запуск-gitlab-ce-и-Gitlab-runner)
