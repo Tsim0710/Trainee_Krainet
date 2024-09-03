@@ -1,0 +1,47 @@
+
+services:
+  gitlab-server:
+    image: gitlab/gitlab-ce:latest
+    container_name: gitlab-server
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'http://localhost:8088'
+        nginx['listen_port'] = 8088
+        gitlab_rails['initial_root_password'] = 'tsim0710tsim'
+        gitlab_rails['registry_enabled'] = true
+        registry_external_url 'http://localhost:5005'
+        gitlab_rails['registry_host'] = 'localhost'
+        gitlab_rails['registry_port'] = 5005
+        puma['worker_processes'] = 0 
+      GITLAB_SHARED_RUNNERS_REGISTRATION_TOKEN: r3g1str4t10n
+    volumes:
+      - ./gitlab/config:/etc/gitlab
+      - ./gitlab/logs:/var/log/gitlab
+      - ./gitlab/data:/var/opt/gitlab
+    ports:
+      - '8088:8088'
+      - '5005:5005'
+    healthcheck:
+      test: curl --fail http://localhost:8088/users/sign_in || exit 1
+      interval: 60s
+      timeout: 3s
+      retries: 5
+
+  gitlab-runner:
+    image: gitlab/gitlab-runner:latest
+    container_name: gitlab-runner
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - REGISTRATION_TOKEN=r3g1str4t10n
+      - CI_SERVER_URL=http://localhost:8088
+    command: ["run", "--user=gitlab-runner", "--working-directory=/etc/gitlab-runner"]
+    depends_on:
+      gitlab-server:
+        condition: service_healthy
+    network_mode: 'host'
+
+volumes:
+  gitlab-config:
+  gitlab-logs:
+  gitlab-data:
