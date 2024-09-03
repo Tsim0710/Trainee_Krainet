@@ -11,7 +11,7 @@
 - [Запуск gitlab-ce и gitlab-runner](#запуск-gitlab-ce-и-Gitlab-runner)
 - [Настройка CI/CD](#настройка-cicd)
 - [Разместите в проекте файлы из архива](#Разместите-в-проекте-файлы-из-архива)
-- [Сохранить image из container и сохранить image в tar](#Сохранить-image-из-container-и-сохранить-image-в-tar)
+- [Сохранить Image из Container registry в tar и загрузите архив](#Сохранить-image-из-container-и-сохранить-image-в-tar)
 
 ## Предварительные требования
 
