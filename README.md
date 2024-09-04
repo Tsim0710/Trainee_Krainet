@@ -62,7 +62,7 @@ docker exec -it gitlab-runner gitlab-runner register \
 3. Закоммитьте изменения.
 
 ## Размещение файлов в проекте
-1. Скачайте файлы из архива: https://drive.google.com/file/d/1nFYofaF55wh4CeG1_hS4uRSjR-COE-SI/view?usp=sharing.
+1. Разместите в проекте файлы из архива: https://drive.google.com/file/d/1nFYofaF55wh4CeG1_hS4uRSjR-COE-SI/view?usp=sharing.
 
 2. Добавьте в проект файл [Dockerfile](https://github.com/Tsim0710/Trainee_Krainet/blob/6b36acbf81c90521969f41782d7f45879778aae2/Dockerfile).
 
